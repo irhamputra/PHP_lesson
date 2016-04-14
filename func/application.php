@@ -1,6 +1,6 @@
 <?php
 
-// Note : Session 1 Thema: Seitensteuerung
+// Note : Session 2 Thema: Seitensteuerung
 
 /**
  * Seiten autmatisch generieren nach Navigationsarray.
@@ -69,7 +69,7 @@ function load_validated_page(){
     }
 }
 
-// Note : Session 2 Thema Status / Session / Cookie / Switch-Case
+// Note : Session 3 Thema Status / Session / Cookie / Switch-Case
 
 /**
  * Fügt eine Fehlermeldung zu dem Statusarray hinzu
@@ -110,6 +110,8 @@ switch($_GET['p']){
         break;
 
     case 'shop':
+        include "func/shop.php";
+        addToCart();
         break;
 
 }

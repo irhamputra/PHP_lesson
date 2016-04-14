@@ -1,11 +1,13 @@
 <?php
 // Konstante für Navgation enthält index.php
+// Note : SESSION 1
 define("_BASE_", $_SERVER['PHP_SELF']);
 
 // Definiere den Seitenordner
 define("_SITEDIR_", "sites/frontend/");
 
 // Array für Menupunkte
+// Note : SESSION 1
 $arrNav = array(
     "frontend" => array(
         0 => array(
@@ -87,6 +89,11 @@ $arrNav = array(
             "title" => "Shop",
             "classes" => ""
         ),
+        12 => array(
+            "href" => _BASE_ . "?p=cart",
+            "title" => "Warenkorb",
+            "classes" => ""
+        ),
         6 => array(
             "href" => _BASE_ . "?p=guestbook",
             "title" => "Gästebuch",
@@ -120,7 +127,7 @@ $arrNav = array(
     ),
     "backend" => array()
 );
-
+// Note : SESSION 3
 $arrStatus = array();
 
 $arrHomework = array(
@@ -142,4 +149,17 @@ $arrHomework = array(
         Die Beste Registrierungsroutine wird in die Anwendung übernommen. Viel Spaß :)",
         "additional_infos" => "Den Mailversand machen wir zusammen in der Vorlesung. Bitte konzentriert euch auf die Auswertung der Inputfelder."
     )
+);
+
+$arrProducts = array(
+    0 => array(
+        "name" => "Staubsauger",
+        "details" => "Saugt und Staubt",
+        "price" => 359.99
+    ),
+    1 => array(
+        "name" => "Kopfhörer",
+        "details" => "Hört im Kopf",
+        "price" => 159.99
+    ),
 );

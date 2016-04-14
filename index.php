@@ -1,4 +1,9 @@
 <?php
+// Note: Session 3
+// Startet eine Session beim User. Muss im Code an erster Stelle stehen und vor jeder HTML ausgabe passieren.
+session_start();
+
+// NOTE: Session 1
 include "config/config.php";
 include "func/application.php";
 ?>
@@ -15,6 +20,7 @@ include "func/application.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
+<!-- Note: Session 1 -->
 <nav>
     <div class="nav-wrapper">
         <ul id="nav-mobile">
@@ -37,9 +43,11 @@ include "func/application.php";
 </nav>
 
 <!-- Fehlerbehandlung -->
+<!-- NOTE: Session 3-->
 <?= readStatus(); ?>
 
 <main class="container">
+    <!-- NOTE: Session 2-->
     <?php include load_validated_page();?>
 </main>
 
