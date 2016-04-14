@@ -122,3 +122,24 @@ $arrNav = array(
 );
 
 $arrStatus = array();
+
+$arrHomework = array(
+    "12.04.16" => array(
+        "desc" => "Expermientiert mit fopen, fclose, fwrite, fread, file_get_contents, und file(); alternativ mit readfile();",
+        "additional_infos" => "<ul>
+        <li><a href=\"http://php.net/manual/en/function.fopen.php\">fopen</a></li>
+        <li><a href=\"http://php.net/manual/de/function.fwrite.php\">fwrite</a></li>
+        <li><a href=\"http://php.net/manual/en/function.fread.php\">fread</a></li>
+        <li><a href=\"http://php.net/manual/en/function.fclose.php\">fclose</a></li>
+        <li><a href=\"http://php.net/manual/en/function.file-get-contents.php\">file_get_contents()</a></li>
+        <li><a href=\"http://php.net/manual/en/function.file.php\">file()</a></li>
+        <li><a href=\"http://php.net/manual/en/function.readfile.php\">readfile</a></li>
+        </ul>"
+    ),
+    "14.04.16" => array(
+        "desc" => "Baut für das Registrierungsformular eine eigene Auswertung. Übernehmt dafür den HTML Quelltext aus der Loginseite auf eure eigene Seite (Nur registrierung)
+        und prüft ob alle Felder ausgefüllt sind. Alle Felder sind Pflichtfelder. Wenn der nutzer alle Felder ausgefüllt hat, also keine Fehler existieren, wird eine e-mail verschickt.
+        Die Beste Registrierungsroutine wird in die Anwendung übernommen. Viel Spaß :)",
+        "additional_infos" => "Den Mailversand machen wir zusammen in der Vorlesung. Bitte konzentriert euch auf die Auswertung der Inputfelder."
+    )
+);

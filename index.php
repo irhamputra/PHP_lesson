@@ -1,8 +1,6 @@
 <?php
-
 include "config/config.php";
 include "func/application.php";
-
 ?>
 
 
@@ -42,7 +40,7 @@ include "func/application.php";
 <?= readStatus(); ?>
 
 <main class="container">
-<?php include load_validated_page();?>
+    <?php include load_validated_page();?>
 </main>
 
 <footer class="page-footer grey darken-2">
