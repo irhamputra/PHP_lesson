@@ -1,5 +1,6 @@
 <?php
 // NOTE: Session 3
+/*
 function addToCart(){
     global $arrProducts;
     if(isset($_GET['addItem'])){
@@ -11,4 +12,4 @@ function addToCart(){
             $_SESSION['cart'][$_GET['addItem']]['count'] = 1;
         }
     }
-}
+}*/

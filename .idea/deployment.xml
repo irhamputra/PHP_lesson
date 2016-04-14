@@ -168,6 +168,16 @@
           <mappings>
             <mapping deploy="/wdd_915" local="$PROJECT_DIR$" web="/wdd_915" />
           </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/sites/frontend/catur.php" />
+            <excludedPath local="true" path="$PROJECT_DIR$/sites/frontend/lena.php" />
+            <excludedPath local="true" path="$PROJECT_DIR$/sites/frontend/leonie.php" />
+            <excludedPath local="true" path="$PROJECT_DIR$/sites/frontend/fatimah.php" />
+            <excludedPath local="true" path="$PROJECT_DIR$/sites/frontend/prasetyo.php" />
+            <excludedPath local="true" path="$PROJECT_DIR$/sites/frontend/nuke.php" />
+            <excludedPath local="true" path="$PROJECT_DIR$/sites/frontend/thomas.php" />
+            <excludedPath local="true" path="$PROJECT_DIR$/sites/frontend/zaini.php" />
+          </excludedPaths>
         </serverdata>
       </paths>
       <paths name="saeleipzig">

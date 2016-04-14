@@ -76,15 +76,17 @@ function load_validated_page(){
  * @param $message
  * @return void
  */
+/*
 function addStatusMessage($message){
     global $arrStatus;
     $arrStatus[] = $message;
 }
-
+*/
 /**
  * Liest das Statusarray aus und gibt eine html fehlerliste zurück.
  * @return string Liste mit Fehlern
  */
+/*
 function readStatus(){
     global $arrStatus;
     if(!empty($arrStatus)){
@@ -97,7 +99,7 @@ function readStatus(){
     }else{
         return "";
     }
-}
+}*/
 
 /** Lade Seitenspezifische Funktionen. Ich brauche nicht alle Funktionalität auf jeder seite.
 *
@@ -110,8 +112,8 @@ switch($_GET['p']){
         break;
 
     case 'shop':
-        include "func/shop.php";
-        addToCart();
+        //include "func/shop.php";
+        //addToCart();
         break;
 
 }
