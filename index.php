@@ -1,11 +1,14 @@
 <?php
 // Note: Session 3
 // Startet eine Session beim User. Muss im Code an erster Stelle stehen und vor jeder HTML ausgabe passieren.
-// session_start();
+session_start();
+
 
 // NOTE: Session 1
 include "config/config.php";
 include "func/application.php";
+
+
 ?>
 
 
@@ -44,7 +47,7 @@ include "func/application.php";
 
 <!-- Fehlerbehandlung -->
 <!-- NOTE: Session 3-->
-<?php // echo readStatus(); ?>
+<?php echo readStatus(); ?>
 
 <main class="container">
     <!-- NOTE: Session 2-->

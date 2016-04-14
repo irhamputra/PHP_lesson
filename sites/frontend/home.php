@@ -1,15 +1,17 @@
-<h5>Heutige Themen</h5>
-<ul>
-    <li>Statusbehandlung</li>
-    <li>Sessions</li>
-    <li>Produkte einem Warenkorb hinzufügen (func/shop.php)</li>
+
+<ul class="collection with-header">
+    <li class="collection-header"><h5>Heutige Themen</h5></li>
+    <li class="collection-item">Cookies</li>
+    <li class="collection-item">Kontaktauswertung</li>
+
 </ul>
 <hr>
-<h5>Änderungen seit dem letzen Unterricht(Session 2 vom 12.04.)</h5>
-<ul>
-    <li>Ordnerstruktur für Studentenincludes</li>
-    <li>Umbau der Hausaufgabenverwaltung: Von HTML zu PHP (config.php und hausaufgaben.php)</li>
-    <li>Kommentierung der einzelnen Unterrichtseinheiten im Quellcode (z.B: note Session 1 steht für erste Unterrichtseinheit)</li>
+
+<ul class="collection with-header">
+    <li class="collection-header"><h5>Änderungen seit dem letzen Unterricht(Session 2 vom 12.04.)</h5></li>
+    <li class="collection-item">Ordnerstruktur für Studentenincludes</li>
+    <li class="collection-item">Umbau der Hausaufgabenverwaltung: Von HTML zu PHP (config.php und hausaufgaben.php)</li>
+    <li class="collection-item">Kommentierung der einzelnen Unterrichtseinheiten im Quellcode (z.B: note Session 1 steht für erste Unterrichtseinheit)</li>
 </ul>
 <hr>
 <h5>Überblick Sessions</h5>
@@ -27,3 +29,11 @@
         <td>Statusbehandlung, $_SESSION array, Produkte einem Warenkorb hinzufügen</td>
     </tr>
 </table>
+
+<ul class="collection with-header">
+    <li class="collection-header"><h5>Todo</h5></li>
+    <li class="collection-item">fread beispiel</li>
+    </ul>
+<h5></h5>
+
+<?= nl2br(file_get_contents("Fragen.txt")); ?>

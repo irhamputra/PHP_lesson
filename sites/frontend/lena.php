@@ -17,8 +17,8 @@ $fragen = array (
  * Übertragen der Überschrift und der Fragen mit fwrite in die Textdatei.
  */
  
-$handle = fopen ("Fragen.txt", "w+");
-
+$handle = fopen ("Fragen_lena.txt", "w+");
+$print_r(fread($handle));
 
 foreach ($fragen as $no => $question){
   if ($no == 0){

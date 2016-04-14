@@ -2,3 +2,4 @@
 homeworks/thomas/datum.php abgelegt.
 -->
 <?php include "homeworks/thomas/12-04-16.php" ?>
+

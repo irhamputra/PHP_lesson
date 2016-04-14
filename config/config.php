@@ -162,4 +162,9 @@ $arrProducts = array(
         "details" => "Hört im Kopf",
         "price" => 159.99
     ),
+    2 => array(
+        "name" => "Mutti-Mixer",
+        "details" => "Mixt Muttis",
+        "price" => 140.00
+    )
 );
