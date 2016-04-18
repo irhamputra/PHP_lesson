@@ -3,6 +3,10 @@
 // Startet eine Session beim User. Muss im Code an erster Stelle stehen und vor jeder HTML ausgabe passieren.
 session_start();
 
+// Note: Session 4
+// Dokumentation anzeigen
+setcookie("MyCookie", TRUE, time()+3600, "/", ".cowdz.rocks", FALSE, TRUE);
+// print_r($_COOKIE);
 
 // NOTE: Session 1
 include "config/config.php";
