@@ -1,0 +1,19 @@
+<h5>Fragen zum Skript:</h5>
+- Lena -
+
+1. Warum wurden generate_pagefile und die Validierung überhaupt in Funktionen gepackt? Mit foreach müsste es doch auch so funktionieren?
+2. Bitte noch einmal Unterschiede und Anwendungsbeispiele für fread, readfile und file/file_get_contents erklären!
+
+    Antwort:
+    - file_get_contents ist performanter als fread - eignet sich wunderbar für einfaches auslesen der datei
+    - fread ist bestandteil einer erweiterten Dateibehandlung und belegt da die datei geöffnet wurde platz im arbeitsspeicher
+    - fread sollte man nur verwenden wenn man die Datei eh schon geöffnet hat (fopen)
+    - readfile returned die anzahl der bytes bei erfolgreichem lesen und FALSE bei einem fehler
+
+3. Wie kann ich den Inhalt dieser Textdatei über das php-Skript im Browserfenster wiedergeben?
+
+    Antwort:
+    nl2br(file_get_contents("Fragen.txt"))
+    nl2br = new line to break ein \n wird in einen html  verständlichen Umbruch (br) verwandelt
+
+

@@ -114,5 +114,10 @@ switch($_GET['p']){
         include "func/shop.php";
         addToCart();
         break;
+    // Note: Session 4
+    case 'upload':
+        include "func/upload.php";
+        upload_file();
+        break;
 
 }

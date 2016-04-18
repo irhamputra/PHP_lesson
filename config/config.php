@@ -84,6 +84,11 @@ $arrNav = array(
                 ),
             )
         ),
+        13 => array(
+            "href" => _BASE_ . "?p=upload",
+            "title" => "Upload",
+            "classes" => ""
+        ),
         5 => array(
             "href" => _BASE_ . "?p=shop",
             "title" => "Shop",

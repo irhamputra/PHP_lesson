@@ -1,9 +1,9 @@
 
 <ul class="collection with-header">
     <li class="collection-header"><h5>Heutige Themen</h5></li>
-    <li class="collection-item">Cookies</li>
-    <li class="collection-item">Kontaktauswertung</li>
-
+    <li class="collection-item">Kontaktformular Auswertung</li>
+    <li class="collection-item">Datei-Upload</li>
+    <li class="collection-item">Cookies setzen</li>
 </ul>
 <hr>
 
@@ -27,6 +27,10 @@
     <tr>
         <td>Session 3</td>
         <td>Statusbehandlung, $_SESSION array, Produkte einem Warenkorb hinzufügen</td>
+    </tr>
+    <tr>
+        <td>Session 4</td>
+        <td>Cookie setzen, Kontaktformular implementieren und Mail-Verschicken, Dateiupload</td>
     </tr>
 </table>
 
