@@ -23,32 +23,32 @@
 <div class="row">
 
     <h5>Neu Registrieren</h5>
-    <form class="col s12">
+    <form action="index.php?p=login" method="post" class="col s12">
         <div class="row">
             <div class="input-field col s6">
-                <input id="first_name" type="text" class="validate">
+                <input id="first_name" type="text" name="register[first_name]" class="validate">
                 <label for="first_name">First Name</label>
             </div>
             <div class="input-field col s6">
-                <input id="last_name" type="text" class="validate">
+                <input id="last_name" type="text" name="register[last_name]" class="validate">
                 <label for="last_name">Last Name</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="password" type="password" class="validate">
+                <input id="password" type="password" name="register[password]" class="validate">
                 <label for="password">Password</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="email" type="email" class="validate">
+                <input id="email" type="email" name="register[email]"  class="validate">
                 <label for="email">Email</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="submit" type="submit" class="btn validate">
+                <input id="submit" type="submit" name="register[submit]" class="btn validate">
             </div>
         </div>
     </form>

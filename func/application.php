@@ -108,6 +108,8 @@ switch($_GET['p']){
         break;
 
     case 'login':
+        include "func/forms.php";
+        registerUser();
         break;
 
     case 'shop':
