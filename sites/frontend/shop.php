@@ -4,7 +4,6 @@
         <p>Name: <?= $product['name'] ?></p>
         <p>Name: <?= $product['details'] ?></p>
         <p>Name: <?= number_format($product['price'], 2, ',', '.') ?> &euro;</p>
-        <!-- Paramter kann selbst gewählt werden, von mir "addItem" -->
-        <p><a href="<?= _BASE_ ?>?p=shop&amp;addItem=<?=$id?>">In den Warenkorb</a></p>
+        <p><a href="<?= _BASE_ ?>?p=shop&addItem=<?=$id?>">In den Warenkorb</a></p>
     </div>
 <?php endforeach; ?>

@@ -8,6 +8,12 @@ session_start();
 setcookie("MyCookie", TRUE, time()+3600, "/", ".cowdz.rocks", FALSE, TRUE);
 // print_r($_COOKIE);
 
+// Verbindung der Datenbank
+$dbh = new PDO('mysql:host=localhost;dbname=' . _DBNAME_, _USER_, _PASSWORD_);
+// Fehlerausgabe
+$dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING );
+
+
 // NOTE: Session 1
 include "config/config.php";
 include "func/application.php";

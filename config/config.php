@@ -6,6 +6,12 @@ define("_BASE_", $_SERVER['PHP_SELF']);
 // Definiere den Seitenordner
 define("_SITEDIR_", "sites/frontend/");
 
+// Note : SESSION 4
+// Database Credentials
+define("_USER_", "root");
+define("_PASSWORD_", "");
+define("_DBNAME_", "name");
+
 // Array für Menupunkte
 // Note : SESSION 1
 $arrNav = array(

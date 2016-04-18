@@ -12,6 +12,7 @@
     <tbody>
 
     <?php
+    
     $total = 0;
     foreach($_SESSION['cart'] as $key => $item) : ?>
         <tr>
@@ -21,6 +22,7 @@
         </tr>
         <?php $total += $item['price']; ?>
     <?php endforeach; ?>
+
     </tbody>
     <tfoot>
     <tr>

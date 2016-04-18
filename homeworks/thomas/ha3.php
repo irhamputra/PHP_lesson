@@ -9,7 +9,7 @@
 				<font color='red'><b>HA-3 vom 14.4.16: PHP - Registrierung</b></font>
 				<br />Baut für das Registrierungsformular eine eigene Auswertung von der Loginseite... (Nur registrierung) und prüft ob alle Felder ausgefüllt sind. Alle Felder sind Pflichtfelder. Wenn der Nutzer alle Felder ausgefüllt hat, also keine Fehler existieren, wird eine e-mail verschickt.</b>
 				<br />
-				<br />Lösungshinweis: Datenbankeintrag, Benutzername und doppelter Passwortcheck fehlen hier noch... 
+				<br />Lösungshinweis: Session, Datenbankeintrag, Benutzername und doppelter Passwortcheck kommt noch... 
 				
 				</p>		
 			</div>		
