@@ -1,4 +1,10 @@
 <br/><br/>
+<?php
+// Note: Logout buggy, check it!
+    if(isset($_SESSION['credentials']['status'])){
+        echo "<a href='index.php?action=logout'>LOGOUT</a>";
+    }
+?>
 <h5>Überblick Sessions</h5>
 <table class="bordered">
     <tr>
@@ -17,17 +23,24 @@
         <td>Session 4</td>
         <td>Cookie setzen, Kontaktformular implementieren und Mail-Verschicken, Dateiupload, (Datenbanken)</td>
     </tr>
+    <tr>
+        <td>Session 5</td>
+        <td>Login & Logout, Gästebuch CRUD</td>
+    </tr>
 </table>
 <br/><br/>
 <ul class="collection with-header">
     <li class="collection-header"><h5>Heutige Themen</h5></li>
-    <li class="collection-item">Kontaktformular Auswertung</li>
-    <li class="collection-item">Datei-Upload</li>
-    <li class="collection-item">Cookies setzen</li>
-    <li class="collection-item">* Database Connection mit PDO</li>
+    <li class="collection-item">Login & Logout</li>
+    <li class="collection-item">Gästebuch CRUD</li>
 </ul>
 <br/><br/>
 <ul class="collection with-header">
+    <li class="collection-header"><h5>Änderungen seit dem letzen Unterricht(Session 4 vom 18.04.)</h5></li>
+    <li class="collection-item">Environment Switch eingebaut (Local, Live)</li>
+    <li class="collection-item">Login-Routine angefangen</li>
+    <li class="collection-item">Datebase.php erstellt für künftige Datenbank interaktion</li>
+
     <li class="collection-header"><h5>Änderungen seit dem letzen Unterricht(Session 3 vom 14.04.)</h5></li>
     <li class="collection-item">Dateiupload hinzugefügt</li>
     <li class="collection-item">Cookie gesetzt</li>
@@ -40,8 +53,21 @@
 </ul>
 <br/><br/>
 <ul class="collection with-header">
-    <li class="collection-header"><h5>Aufgaben:</h5></li>
-    <li class="collection-item">fread beispiel Bauen:</li>
+    <li class="collection-header"><h5>Merkblatt:</h5></li>
+    <li class="collection-item">Datenbank Verbindung und Interaktion</li>
+    <li class="collection-item">
+        <pre><code>// Herstellen einer Verbindung
+<span class="blue-text">$db</span> = new PDO("mysql:host="._DBHOST_.";dbname="._DBNAME_, _USER_, _PASSWORD_);
+// Statement schreiben
+<span class="blue-text">$sql</span> = "SELECT * FROM table";
+// Statement vorbereiten
+<span class="blue-text">$stmt</span> = <span class="blue-text">$db</span>-><span class="red-text">prepare</span>(<span class="blue-text">$sql</span>);
+// Statement ausführen
+<span class="blue-text">$stmt</span>-><span class="red-text">execute()</span>;
+// wenn ergebnis vorhanden:
+<span class="blue-text">$res</span> = <span class="blue-text">$stmt</span>-><span class="red-text">fetchAll</span>(PDO::FETCH_ASSOC);</code></pre>
+    </li>
+    <li class="collection-item">fread beispiel:</li>
     <li class="collection-item">
         Antwort: <br/>
         <code>

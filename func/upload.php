@@ -13,7 +13,7 @@
  */
 function upload_file(){
     if(isset($_FILES)){
-        // print_r($_FILES);
+        print_r($_FILES);
         if(is_uploaded_file($_FILES['file']['tmp_name'])){
             $dir = "uploads/";
             $dest = $dir . str_replace(" ", "_", $_FILES['file']['name']);

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="310445096">
+    <data-source source="LOCAL" name="MySQL - db450699_24@mysql5.cowdz.rocks" uuid="c877e2c3-e0b7-42b5-82c4-e3a656601c41">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://mysql5.cowdz.rocks:3306/db450699_24</jdbc-url>
+      <driver-properties>
+        <property name="autoReconnect" value="true" />
+        <property name="zeroDateTimeBehavior" value="convertToNull" />
+        <property name="tinyInt1isBit" value="false" />
+        <property name="characterEncoding" value="utf8" />
+        <property name="characterSetResults" value="utf8" />
+        <property name="yearIsDateType" value="false" />
+        <property name="DBNAME" value="ks4852s1" />
+      </driver-properties>
+    </data-source>
+  </component>
+</project>

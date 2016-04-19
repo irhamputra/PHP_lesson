@@ -62,15 +62,18 @@ function load_validated_page(){
     //print_r($arrWhitelist);
 
     // Checkt Get Werte ob sie erlaubt sind.
-    if(in_array($_GET['p'], $arrWhitelist)){
-        return _SITEDIR_ . $_GET['p'] . ".php";
+    if(isset($_GET['p'])){
+        if(in_array($_GET['p'], $arrWhitelist)){
+            return _SITEDIR_ . $_GET['p'] . ".php";
+        }else{
+            return _SITEDIR_ . "home.php";
+        }
     }else{
         return _SITEDIR_ . "home.php";
     }
 }
 
 // Note : Session 3 Thema Status / Session / Cookie / Switch-Case
-
 /**
  * Fügt eine Fehlermeldung zu dem Statusarray hinzu
  * @param string $message
@@ -103,23 +106,51 @@ function readStatus(){
 /** Lade Seitenspezifische Funktionen.
  * Ich brauche nicht alle Funktionalität auf jeder seite.
 */
-switch($_GET['p']){
-    case 'contact':
-        break;
+if(isset($_GET['p'])){
+    switch($_GET['p']){
+        case 'home':
+            include "func/login.php";
+            logout();
+            break;
 
-    case 'login':
-        include "func/forms.php";
-        registerUser();
-        break;
+        case 'contact':
+            break;
 
-    case 'shop':
-        include "func/shop.php";
-        addToCart();
-        break;
-    // Note: Session 4
-    case 'upload':
-        include "func/upload.php";
-        upload_file();
-        break;
+        case 'login':
+            // Note Session 4
+            // Pfad vom ersten Include der Datei ist der Ausgangspfad
+            include "func/forms.php";
+            registerUser();
+            
+            // Note: Session 5
+            include "func/login.php";
+            login($_POST['login']);
+            break;
 
+        case 'shop':
+            // Pfad vom ersten Include der Datei ist der Ausgangspfad
+            include "func/shop.php";
+            addToCart();
+            break;
+        // Note: Session 4
+        case 'upload':
+            // Pfad vom ersten Include der Datei ist der Ausgangspfad
+            include "func/upload.php";
+            upload_file();
+            break;
+
+        // Note: Session 5
+        case 'guestbook':
+            include "func/database.php";
+            create();
+            if($_GET['action'] == "delete"){
+                delete();
+            }
+            if($_GET['action'] == "edit"){
+
+            }
+            $entries = read();
+          break;
+
+    }
 }

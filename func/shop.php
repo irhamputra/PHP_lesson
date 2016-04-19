@@ -1,6 +1,5 @@
 <?php
 // NOTE: Session 3
-
 function addToCart(){
     global $arrProducts;
     if(isset($_GET['addItem'])){

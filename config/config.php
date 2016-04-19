@@ -6,11 +6,23 @@ define("_BASE_", $_SERVER['PHP_SELF']);
 // Definiere den Seitenordner
 define("_SITEDIR_", "sites/frontend/");
 
-// Note : SESSION 4
+// Note : SESSION 4 & 5
 // Database Credentials
-define("_USER_", "root");
-define("_PASSWORD_", "");
-define("_DBNAME_", "name");
+function setupEnvironment(){
+    //if(preg_match("/(localhost)/", $_SERVER['HTTP_HOST'])){
+      /*  define("_USER_", "root");
+        define("_PASSWORD_", "");
+        define("_DBNAME_", "php_915");
+        define("_DBHOST_", "localhost"); */
+    //}else{
+
+        define("_USER_", "db450699_24");
+        define("_PASSWORD_", "0815@php915");
+        define("_DBNAME_", "db450699_24");
+        define("_DBHOST_", "mysql5.cowdz.rocks");
+    //}
+}
+
 
 // Array für Menupunkte
 // Note : SESSION 1

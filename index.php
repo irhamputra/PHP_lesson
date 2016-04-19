@@ -3,20 +3,29 @@
 // Startet eine Session beim User. Muss im Code an erster Stelle stehen und vor jeder HTML ausgabe passieren.
 session_start();
 
-// Note: Session 4
-// Dokumentation anzeigen
-setcookie("MyCookie", TRUE, time()+3600, "/", ".cowdz.rocks", FALSE, TRUE);
-// print_r($_COOKIE);
+//print_r($_SESSION);
 
-// Verbindung der Datenbank
-$dbh = new PDO('mysql:host=localhost;dbname=' . _DBNAME_, _USER_, _PASSWORD_);
-// Fehlerausgabe
-$dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING );
+// Note: Session 4
+//setcookie("MyCookie", TRUE, time()+3600, "/", ".cowdz.rocks", FALSE, TRUE);
+// print_r($_COOKIE);
 
 
 // NOTE: Session 1
 include "config/config.php";
+
+// Note: Session 5
+setupEnvironment();
+
+$db = new PDO("mysql:host="._DBHOST_.";dbname="._DBNAME_, _USER_, _PASSWORD_);
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+// Todo : Logout funzt nicht bitte mal checken;
+
 include "func/application.php";
+
+
+
+
 
 
 ?>
@@ -57,8 +66,9 @@ include "func/application.php";
 
 <!-- Fehlerbehandlung -->
 <!-- NOTE: Session 3-->
-<?php echo readStatus(); ?>
-
+<div class="row red-text">
+    <?php echo readStatus(); ?>
+</div>
 <main class="container">
     <!-- NOTE: Session 2-->
     <?php include load_validated_page();?>
