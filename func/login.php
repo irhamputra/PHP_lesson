@@ -35,7 +35,8 @@ function login($data){
 				$_SESSION['credentials']['status'] = $res[0]['users_status'];
 				$_SESSION['credentials']['email'] = $res[0]['users_email'];
 
-				header("Location: index.php?p=home");
+				// Note: Session 6
+				header("Location: index.php?backend&p=dashboard");
 				exit();
 			}
 
@@ -47,13 +48,10 @@ function login($data){
  * Loggt den Benutzer aus
  */
 function logout(){
-
 	if(isset($_GET['action']) && $_GET['action'] == "logout"){
-		unset($_SESSION);
 		$_SESSION = array();
 		session_destroy();
-
-		//header("Location: index.php?p=login");
-		//exit();
+		header("Location: index.php?p=home");
+		exit();
 	}
 }

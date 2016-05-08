@@ -6,7 +6,7 @@ session_start();
 //print_r($_SESSION);
 
 // Note: Session 4
-//setcookie("MyCookie", TRUE, time()+3600, "/", ".cowdz.rocks", FALSE, TRUE);
+// setcookie("MyCookie", TRUE, time()+3600, "/", ".cowdz.rocks", FALSE, TRUE);
 // print_r($_COOKIE);
 
 
@@ -19,14 +19,13 @@ setupEnvironment();
 $db = new PDO("mysql:host="._DBHOST_.";dbname="._DBNAME_, _USER_, _PASSWORD_);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-// Todo : Logout funzt nicht bitte mal checken;
+// Einbindung des Loginskriptes in der Index, da man die Funktionen flexibel überall in der Applikation verwenden kann
+include "func/login.php";
 
+// Steuerung der Seite
 include "func/application.php";
 
-
-
-
-
+logout();
 
 ?>
 
@@ -44,10 +43,14 @@ include "func/application.php";
 <body>
 <!-- Note: Session 1 -->
 <nav>
-    <div class="nav-wrapper">
+    <div class="nav-wrapper grey darken-2">
         <ul id="nav-mobile">
+            <li>
+                <a href="<?= _BASE_ ?>?p=home" style="font-family: 'Courier New'; font-weight: bold;">m.S(t)</a>
+            </li>
             <?php $counter = 1; ?>
-            <?php foreach($arrNav["frontend"] as $key => $menuitem) : ?>
+            
+            <?php foreach($arrNav[switch_navigation()] as $key => $menuitem) : ?>
                 <li>
                     <a href="<?= $menuitem['href'] ?>" data-activates="dropdown<?=$counter;?>" class="<?= (isset($menuitem['2nd-level-menu'])) ? "dropdown-button" : "" ?>"><?= $menuitem['title'] ?></a>
                     <?php if(isset($menuitem['2nd-level-menu'])) :  ?>
@@ -70,6 +73,14 @@ include "func/application.php";
     <?php echo readStatus(); ?>
 </div>
 <main class="container">
+    <div>
+    <pre style="font-family: 'Courier New'; font-size: 36px; font-weight: bold;">
+m.S(t)
+ {<span style="font-size: 0.9em;">{web.</span><span style="color: darkorange; font-size: 0.9em;">Development</span><span style="font-size: 0.9em;">}</span>}
+    <span style="font-size: 0.5em;">&copy; by Marten Stockenberg</span></pre>
+    </div>
+    <hr>
+    <br/>
     <!-- NOTE: Session 2-->
     <?php include load_validated_page();?>
 </main>

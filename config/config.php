@@ -5,6 +5,7 @@ define("_BASE_", $_SERVER['PHP_SELF']);
 
 // Definiere den Seitenordner
 define("_SITEDIR_", "sites/frontend/");
+define("_SITEDIR_ADMIN_", "sites/backend/");
 
 // Note : SESSION 4 & 5
 // Database Credentials
@@ -122,33 +123,45 @@ $arrNav = array(
             "title" => "Gästebuch",
             "classes" => ""
         ),
-        8 => array(
-            "href" => _BASE_ . "?p=chat",
-            "title" => "Chat",
-            "classes" => "",
-        ),
         2 => array(
             "href" => _BASE_ . "?p=contact",
             "title" => "Kontakt",
             "classes" => ""
         ),
-        3 => array(
-            "href" => _BASE_ . "?p=toc",
-            "title" => "AGB",
-            "classes" => ""
-        ),
-        4 => array(
-            "href" => _BASE_ . "?p=imprint",
-            "title" => "Impressum",
-            "classes" => ""
-        ),
+        // Note: Session 6
+
+        /*  (Bedingung) ? True : (False)      */
         7 => array(
-            "href" => _BASE_ . "?p=login",
-            "title" => "Login",
+            "href" => (isset($_SESSION['credentials']['status'])) ? _BASE_ . "?backend&p=dashboard" : _BASE_ . "?p=login",
+            "title" => (isset($_SESSION['credentials']['status'])) ? "Dashboard" : "Login",
             "classes" => "",
-        )
+        ),
+        15 => array(
+            "href" => _BASE_ . "?p=forgot_password",
+            "title" => "",
+            "classes" => "hidden"
+        ),
+
     ),
-    "backend" => array()
+    // Note: Session 6
+    "backend" => array(
+        1 => array(
+            "href" => _BASE_ . "?backend&p=dashboard",
+            "title" => "Dashboard",
+            "classes" => ""
+        ),
+        2 => array(
+            "href" => _BASE_ . "?backend&p=user-edit",
+            "title" => "Benutzer editieren",
+            "classes" => ""
+        ),
+        3 => array(
+            "href" => _BASE_ . "?action=logout",
+            "title" => "Logout",
+            "classes" => ""
+        ),
+
+    )
 );
 // Note : SESSION 3
 $arrStatus = array();

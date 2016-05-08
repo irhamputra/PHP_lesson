@@ -14,6 +14,20 @@ function registerUser(){
          */
 
         if(true){
+            // Note: Session 6
+            global $db;
+            $sql = "INSERT INTO users (users_username, users_password, users_email, users_status)
+                    VALUES (:username, :password, :email, :status)";
+            $stmt = $db->prepare($sql);
+            $stmt->execute(
+                array(
+                    ':username' => $_POST['register']['first_name'],
+                    ':password' => md5($_POST['register']['password']),
+                    ':email' => $_POST['register']['email'],
+                    ':status' => 1
+                )
+            );
+            // Todo : Double Opt in
             $to = $_POST['register']['email'];
             $subject = "Test";
             $msg = "Hallo \n";

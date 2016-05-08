@@ -1,6 +1,6 @@
 <div class="row">
     <h5>FTP Zugang</h5>
-    <table class="bordered">
+    <table class="white bordered">
         <tr>
             <td>Server:</td>
             <td>ftp.mycoding.rocks</td>

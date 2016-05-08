@@ -1,41 +1,54 @@
-<br/><br/>
-<?php
-// Note: Logout buggy, check it!
-    if(isset($_SESSION['credentials']['status'])){
-        echo "<a href='index.php?action=logout'>LOGOUT</a>";
-    }
-?>
+
 <h5>Überblick Sessions</h5>
-<table class="bordered">
-    <tr>
-        <td>Session 1</td>
-        <td>Navigationsarray und generierung der Frontendnavigation</td>
-    </tr>
-    <tr>
-        <td>Session 2</td>
-        <td>Validierung der GET-Parameter und dynamische Erstellung der Unterseiten auf basis das $arrNav arrays</td>
-    </tr>
-    <tr>
-        <td>Session 3</td>
-        <td>Statusbehandlung, $_SESSION array, Produkte einem Warenkorb hinzufügen</td>
-    </tr>
-    <tr>
-        <td>Session 4</td>
-        <td>Cookie setzen, Kontaktformular implementieren und Mail-Verschicken, Dateiupload, (Datenbanken)</td>
-    </tr>
-    <tr>
-        <td>Session 5</td>
-        <td>Login & Logout, Gästebuch CRUD</td>
-    </tr>
+<table class="bordered white">
+    <thead>
+        <tr>
+            <th>Session</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Navigationsarray und generierung der Frontendnavigation</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Validierung der GET-Parameter und dynamische Erstellung der Unterseiten auf basis das $arrNav arrays</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Statusbehandlung, $_SESSION array, Produkte einem Warenkorb hinzufügen</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Cookie setzen, Kontaktformular implementieren und Mail-Verschicken, Dateiupload, (Datenbanken)</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Login & Logout, Gästebuch CRUD</td>
+        </tr>
+        <tr class="active">
+            <td>6</td>
+            <td>Backendnavigation, Registrierung neuer Benutzer, Passwort zurücksetzen(durchdenken), Benutzer editieren</td>
+        </tr>
+    </tbody>
 </table>
 <br/><br/>
 <ul class="collection with-header">
     <li class="collection-header"><h5>Heutige Themen</h5></li>
-    <li class="collection-item">Login & Logout</li>
-    <li class="collection-item">Gästebuch CRUD</li>
+    <li class="collection-item">Backendnavigation</li>
+    <li class="collection-item">Registrierung neuer Benutzer</li>
+    <li class="collection-item">Benutzer editieren</li>
+    <li class="collection-item">Passwort zurücksetzen(durchdenken)</li>
 </ul>
 <br/><br/>
 <ul class="collection with-header">
+    <li class="collection-header"><h5>Änderungen seit dem letzen Unterricht(Session 5 vom 25.04.)</h5></li>
+    <li class="collection-item">Navigation angepasst, änderungen im Array, der Ausgabe, der Dateigenerierung und Whitelist Funktionen</li>
+    <li class="collection-item">Read, Update, Delete Backend - User-edit</li>
+    <li class="collection-item">Registrierung der Benutzer in der Datenbank</li>
+
     <li class="collection-header"><h5>Änderungen seit dem letzen Unterricht(Session 4 vom 18.04.)</h5></li>
     <li class="collection-item">Environment Switch eingebaut (Local, Live)</li>
     <li class="collection-item">Login-Routine angefangen</li>

@@ -1,3 +1,8 @@
+<?php
+    if(isset($_GET['newpass'])){
+        echo "<p>Passwort erfolgreich geändert!</p>";
+    }
+?>
 <div class="row">
     <h5>Login</h5>
     <form method="post" action="" class="col s12">
@@ -18,6 +23,7 @@
         </div>
     </form>
     <p>Sie sind noch nicht registriert ? Hier registrieren</p>
+    <p>Passwort vergessen ? <a href="index.php?p=forgot_password">YAAAAA</a></p>
 </div>
 
 <div class="row">

@@ -28,6 +28,24 @@ function generate_pagefiles()
             }
         }
     }
+    // Note: SESSION 6
+    foreach ($arrNav['backend'] as $pagekey => $page) {
+        // Dimension 2 arrNav
+        if (isset($page["2nd-level-menu"])) {
+            foreach ($page['2nd-level-menu'] as $scnd_level_key => $scnd_lvl_page) {
+                $get_value = explode("=", $scnd_lvl_page["href"]);
+                if (!file_exists(_SITEDIR_ADMIN_ . $get_value[1] . ".php")) {
+                    fopen(_SITEDIR_ADMIN_ . $get_value[1] . ".php", "w+");
+                }
+            }
+            // Dimension 1 arrNav
+        } else {
+            $get_value = explode("=", $page["href"]);
+            if (!file_exists(_SITEDIR_ADMIN_ . $get_value[1] . ".php")) {
+                fopen(_SITEDIR_ADMIN_ . $get_value[1] . ".php", "w+");
+            }
+        }
+    }
 }
 
 /** Aufruf der Funktion bei jedem Seitenreload,
@@ -58,14 +76,36 @@ function load_validated_page(){
             $arrWhitelist[] = $get_value[1];
         }
     }
+    // Note: Session 6
+    // Wenn der Nutzer eingeloggt ist, schreibe GET-Werte fürs Backend in Whitelist
+    if(isset($_SESSION['credentials']['status'])){
+        foreach($arrNav["backend"] as $key => $page){
+            if(isset($page["2nd-level-menu"])){
+                foreach($page["2nd-level-menu"] as $scnd_level_key => $scnd_level_page){
+                    $get_value = explode("=", $scnd_level_page['href']);
+                    $arrWhitelist[] = $get_value[1];
+                }
+            }else{
+                $get_value = explode("=", $page['href']);
+                $arrWhitelist[] = $get_value[1];
+            }
+        }
+    }
+    // Note: Session 6
 
     //print_r($arrWhitelist);
 
     // Checkt Get Werte ob sie erlaubt sind.
     if(isset($_GET['p'])){
         if(in_array($_GET['p'], $arrWhitelist)){
-            return _SITEDIR_ . $_GET['p'] . ".php";
+            // Wenn eingeloggt, dann lade Seiten aus einem anderen Ordner
+            if(isset($_SESSION['credentials']['status']) && isset($_GET['backend'])){
+                return _SITEDIR_ADMIN_ . $_GET['p'] . ".php";
+            }else{
+                return _SITEDIR_ . $_GET['p'] . ".php";
+            }
         }else{
+            echo "test3";
             return _SITEDIR_ . "home.php";
         }
     }else{
@@ -103,14 +143,30 @@ function readStatus(){
     }
 }
 
+/* Note: Session 6
+ * Wechselt zwischen frontend und Backend navigation.
+ * @return string arrNav key
+ */
+function switch_navigation(){
+    if(isset($_GET['backend']) && isset($_SESSION['credentials']['status'])){
+        return "backend";
+    }else{
+        return "frontend";
+    }
+}
+
 /** Lade Seitenspezifische Funktionen.
  * Ich brauche nicht alle Funktionalität auf jeder seite.
 */
 if(isset($_GET['p'])){
     switch($_GET['p']){
+        case 'forgot_password':
+            include "func/forgot_pw.php";
+            send_forgotten_password_link();
+            reset_password();
+            break;
+
         case 'home':
-            include "func/login.php";
-            logout();
             break;
 
         case 'contact':
@@ -123,7 +179,6 @@ if(isset($_GET['p'])){
             registerUser();
             
             // Note: Session 5
-            include "func/login.php";
             login($_POST['login']);
             break;
 
@@ -142,15 +197,27 @@ if(isset($_GET['p'])){
         // Note: Session 5
         case 'guestbook':
             include "func/database.php";
-            create();
+            create_gb();
             if($_GET['action'] == "delete"){
-                delete();
+                delete_gb();
             }
             if($_GET['action'] == "edit"){
-
+                $edit_entrie = update_gb();
             }
-            $entries = read();
+            $entries = read_gb();
           break;
+
+        // Note: Session 6
+        case 'user-edit':
+            include "func/database.php";
+            if($_GET['action'] == "delete"){
+                delete_user();
+            }
+            if($_GET['action'] == "edit"){
+                $user_edit = update_user();
+            }
+            $users = read_all_users();
+            break;
 
     }
 }

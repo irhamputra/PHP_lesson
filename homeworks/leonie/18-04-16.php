@@ -28,6 +28,8 @@ echo ("Bitte eine EMail Adresse eingeben!");
 ?>
 
 
+
+
 <div class="row">
     <h5>Neu Registrieren</h5>
     <form class="col s12">

@@ -1,13 +1,20 @@
 
 <form action="" method="post">
-    <div>
-        <input type="text" name="guestbook[username]" />
+    <div class="row">
+        <div class="input-field col s12">
+            <input placeholder="Name" type="text" value="<?= (!empty($edit_entrie)) ? $edit_entrie[0]['guestbook_username'] : "" ?>" name="guestbook[username]" />
+        </div>
     </div>
-    <div>
-        <textarea name="guestbook[message]" id="" cols="30" rows="10"></textarea>
+    <div class="row">
+        <div class="input-field col s12">
+            <textarea class="materialize-textarea" placeholder="Nachricht" name="guestbook[message]" id="" cols="30" rows="10"><?= (!empty($edit_entrie)) ? $edit_entrie[0]['guestbook_message'] : "" ?></textarea>
+        </div>
     </div>
-    <div>
-        <input type="submit" name="guestbook[submit]" value="Hochladen">
+    <div class="row">
+        <div class="input-field col s12">
+            <input type="submit" name="<?= (!empty($edit_entrie)) ? "guestbook[update]" : "guestbook[submit]" ?>" " value="Hochladen">
+            <input type="hidden" name="guestbook[id]" value="<?= $_GET['edit'] ?>">
+        </div>
     </div>
 </form>
 
