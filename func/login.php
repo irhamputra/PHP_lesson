@@ -31,13 +31,16 @@ function login($data){
 
 			//print_r($res);
 
-			if($res > 0){
+			if(!empty($res)){
 				$_SESSION['credentials']['status'] = $res[0]['users_status'];
 				$_SESSION['credentials']['email'] = $res[0]['users_email'];
+				$_SESSION['credentials']['username'] = $res[0]['users_username'];
 
 				// Note: Session 6
 				header("Location: index.php?backend&p=dashboard");
 				exit();
+			}else{
+				addStatusMessage("Falscher Login.");
 			}
 
 		}

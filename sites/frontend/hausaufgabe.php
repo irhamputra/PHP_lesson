@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
     <h5>FTP Zugang</h5>
     <table class="white bordered">
         <tr>
@@ -14,9 +14,8 @@
             <td>student@sae</td>
         </tr>
     </table>
-</div>
+</div> -->
 <div class="row">
-
     <h5>Hausaufgabe:</h5>
     <p><strong class="chip">Hinweis:</strong><br/>
         Jeder hat jetzt auf dem Server in dem Homeworks ordner einen eigenen Unterordner. Wenn ihre eure Hausaufgabe
@@ -27,10 +26,14 @@
         <br/><br/>
         lg
         Marten</p>
-    <?php foreach (array_reverse($arrHomework) as $date => $task) : ?>
-        <strong class="chip blue darken-4 white-text"><?= $date ?></strong>
-        <p><strong><?= $task['desc']; ?></strong></p>
-        <div><em><?= $task['additional_infos']; ?></em></div>
-        <hr>
+    <ul class="collection with-header">
+    <?php foreach($homeworks as $row => $homework): ?>
+        <li class="collection-header"><?= date("d.m.Y", strtotime($homework['homework_date'])) ?></li>
+        <li class="collection-item">
+            <p><?= $homework['homework_description'] ?></p>
+        </li>
     <?php endforeach; ?>
+    </ul>
+
+
 </div>

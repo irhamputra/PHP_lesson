@@ -1,34 +1,24 @@
 <?php
-// Note: Session 3
-// Startet eine Session beim User. Muss im Code an erster Stelle stehen und vor jeder HTML ausgabe passieren.
-session_start();
-
-//print_r($_SESSION);
-
-// Note: Session 4
-// setcookie("MyCookie", TRUE, time()+3600, "/", ".cowdz.rocks", FALSE, TRUE);
-// print_r($_COOKIE);
+session_start ();
 
 
-// NOTE: Session 1
+
+
+
+
+
 include "config/config.php";
+setupEnviroment ();
 
-// Note: Session 5
-define_db_login_credentials();
+$db = new PDO ("mysql:host=" . _DBHOST_ . ";dbname=" . _DBNAME_, _USER_, _PASSWORD_);
+$db-> setAttribute (PDO :: ATTR_ERRMODE, PDO :: ERRORMODE_EXEPTION);
 
-$db = new PDO("mysql:host="._DBHOST_.";dbname="._DBNAME_, _USER_, _PASSWORD_);
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-// Einbindung des Loginskriptes in der Index, da man die Funktionen flexibel überall in der Applikation verwenden kann
 include "func/login.php";
-
-// Steuerung der Seite
 include "func/application.php";
 
-logout();
+logout ();
 
 ?>
-
 
 <!doctype html>
 <html lang="en">
@@ -41,7 +31,7 @@ logout();
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
-<!-- Note: Session 1 -->
+
 <nav>
     <div class="nav-wrapper grey darken-2">
         <ul id="nav-mobile">
@@ -67,8 +57,7 @@ logout();
     </div>
 </nav>
 
-<!-- Fehlerbehandlung -->
-<!-- NOTE: Session 3-->
+
 <div class="row red-text">
     <?php echo readStatus(); ?>
 </div>
@@ -81,7 +70,7 @@ m.S(t)
     </div>
     <hr>
     <br/>
-    <!-- NOTE: Session 2-->
+   
     <?php include load_validated_page();?>
 </main>
 
@@ -111,7 +100,7 @@ m.S(t)
     </div>
 </footer>
 
-<!--Import jQuery before materialize.js-->
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
 

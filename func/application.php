@@ -5,7 +5,12 @@
 /**
  * Seiten autmatisch generieren nach Navigationsarray.
  * Prüft das array $arrNav auf zweite Ebene und generiert die
- * Template-Files in den Ordner
+ * Template-Files in den Ordner Sites/Frontend L:14 und Sites Backend L: 32
+ * @return void
+ */
+
+/**
+ * Generates Pagefiles from ArrNav, generates Files in Sites/frontend, Sites Backend.
  * @return void
  */
 function generate_pagefiles()
@@ -49,7 +54,7 @@ function generate_pagefiles()
 }
 
 /** Aufruf der Funktion bei jedem Seitenreload,
- * es soll permanent geprüft werden ob eine neue Seite angelegt wurde
+ * es soll permanent geprüft werden ob eine neue Seite angelegt werden soll.
  */
 generate_pagefiles();
 
@@ -61,6 +66,7 @@ generate_pagefiles();
  * @return string url of requested site
  */
 function load_validated_page(){
+    // Note: was ist, wenn die Seite nicht in der Navigation angezeigt werden soll, ABER trotzdem validiert werden soll?
     $arrWhitelist = array();
     global $arrNav;
 
@@ -127,7 +133,7 @@ function addStatusMessage($message){
 
 /**
  * Liest das Statusarray aus und gibt eine html fehlerliste zurück.
- * @return string Liste mit Fehlern
+ * @return string Liste mit Fehlern, formatiert in HTML Syntax UL->Li
  */
 function readStatus(){
     global $arrStatus;
@@ -219,5 +225,39 @@ if(isset($_GET['p'])){
             $users = read_all_users();
             break;
 
+        case 'homework-edit':
+            include "func/database.php";
+            create_homeworks();
+            if($_GET['action'] == "delete"){
+                delete_homework();
+            }
+            if($_GET['action'] == "edit"){
+                $homeworks_edit = update_homework();
+            }
+            $homeworks = read_all_homeworks();
+            break;
+
+        case 'hausaufgabe':
+            include "func/database.php";
+            $homeworks = read_all_homeworks();
+            break;
+
+        case 'shipping':
+            if(isset($_POST['shipping']['submit'])){
+                // NOTE: IMPORTANT validate!! before live, before productive use
+                $_SESSION['shipping'] = $_POST['shipping'];
+                header("Location: " . _BASE_ . "?p=payment");
+                exit();
+            }
+            break;
+
+        case 'payment':
+            if(isset($_POST['payment']['submit'])){
+                // NOTE: IMPORTANT validate!! before live, before productive use
+                $_SESSION['payment'] = $_POST['payment'];
+                header("Location: " . _BASE_ . "?p=confirm");
+                exit();
+            }
+            break;
     }
 }

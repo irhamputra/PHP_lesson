@@ -4,16 +4,24 @@
 function registerUser(){
     if($_POST["register"]["submit"]){
 
-        // Formular auswertungsbedingungen
-        /*
-         if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
-          Valid
-         } else {
-          Not Valid
-         }
-         */
-
-        if(true){
+        if(empty($_POST["register"]['first_name'])){
+            addStatusMessage("Bitte Vornamen eintragen");
+        }
+        if(empty($_POST["register"]['last_name'])){
+            addStatusMessage("Bitte Nachname eintragen");
+        }
+        if(empty($_POST["register"]['password'])){
+            addStatusMessage("Bitte Passwort eintragen");
+        }
+        if(empty($_POST["register"]['email'])){
+            addStatusMessage("Bitte Email eintragen");
+        }else{
+            if (filter_var($_POST["register"]['email'], FILTER_VALIDATE_EMAIL) === false) {
+               addStatusMessage("Email-Format ist falsch!"); 
+             } 
+        }
+        
+        if(readStatus() == ""){
             // Note: Session 6
             global $db;
             $sql = "INSERT INTO users (users_username, users_password, users_email, users_status)

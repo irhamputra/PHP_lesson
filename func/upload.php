@@ -13,15 +13,20 @@
  */
 function upload_file(){
     if(isset($_FILES)){
-        if(is_uploaded_file($_FILES['file']['tmp_name'])){
-            $dir = "uploads/";
-            $dest = $dir . str_replace(" ", "_", $_FILES['file']['name']);
-            if(move_uploaded_file($_FILES['file']['tmp_name'], $dest)){
-                addStatusMessage("Datei erfolgreich hochgeladen!");
-            }else{
-                addStatusMessage("Upload Fehlgeschlagen!");
-            }
+        if($_FILES['file']['size'] != 0){
+            // Todo: Prüfe auf erlaubte Mime-Types
+            if(is_uploaded_file($_FILES['file']['tmp_name'])){
+                $dir = "uploads/";
+                $dest = $dir . str_replace(" ", "_", $_FILES['file']['name']);
+                if(move_uploaded_file($_FILES['file']['tmp_name'], $dest)){
+                    addStatusMessage("Datei erfolgreich hochgeladen!");
+                }else{
+                    addStatusMessage("Upload Fehlgeschlagen!");
+                }
 
+            }
+        }else{
+            addStatusMessage("Wähle eine Datei.");
         }
     }
 }
